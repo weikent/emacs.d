@@ -1,73 +1,86 @@
-;; Use C-f during file selection to switch to regular find-file
-(require 'ido-ubiquitous)
-(ido-mode t)  ; use 'buffer rather than t to use only buffer switching
-(ido-everywhere t)
-;(ido-ubiquitous-mode t)
-(setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point nil)
-(setq ido-auto-merge-work-directories-length 0)
-(setq ido-use-virtual-buffers t)
+;; -*- Emacs-Lisp -*-
 
-;; Allow the same buffer to be open in different frames
-(setq ido-default-buffer-method 'selected-window)
+;; Time-stamp: <2010-08-08 12:04:13 Sunday by taoshanwen>
 
-(defun steve-ido-choose-from-recentf ()
-  "Use ido to select a recently opened file from the `recentf-list'"
-  (interactive)
-  (if (and ido-use-virtual-buffers (fboundp 'ido-toggle-virtual-buffers))
-      (ido-switch-buffer)
-    (find-file (ido-completing-read "Open file: " recentf-list nil t))))
+(if is-before-emacs-21
+    (require 'ido "ido-for-21"))
 
-(global-set-key [(meta f11)] 'steve-ido-choose-from-recentf)
+(ido-mode 1)
 
-(defun ido-goto-symbol (&optional symbol-list)
-  "Refresh imenu and jump to a place in the buffer using Ido."
-  (interactive)
-  (unless (featurep 'imenu)
-    (require 'imenu nil t))
-  (cond
-   ((not symbol-list)
-    (let ((ido-mode ido-mode)
-          (ido-enable-flex-matching
-           (if (boundp 'ido-enable-flex-matching)
-               ido-enable-flex-matching t))
-          name-and-pos symbol-names position)
-      (unless ido-mode
-        (ido-mode 1)
-        (setq ido-enable-flex-matching t))
-      (while (progn
-               (imenu--cleanup)
-               (setq imenu--index-alist nil)
-               (ido-goto-symbol (imenu--make-index-alist))
-               (setq selected-symbol
-                     (ido-completing-read "Symbol? " symbol-names))
-               (string= (car imenu--rescan-item) selected-symbol)))
-      (unless (and (boundp 'mark-active) mark-active)
-        (push-mark nil t nil))
-      (setq position (cdr (assoc selected-symbol name-and-pos)))
-      (cond
-       ((overlayp position)
-        (goto-char (overlay-start position)))
-       (t
-        (goto-char position)))))
-   ((listp symbol-list)
-    (dolist (symbol symbol-list)
-      (let (name position)
-        (cond
-         ((and (listp symbol) (imenu--subalist-p symbol))
-          (ido-goto-symbol symbol))
-         ((listp symbol)
-          (setq name (car symbol))
-          (setq position (cdr symbol)))
-         ((stringp symbol)
-          (setq name symbol)
-          (setq position
-                (get-text-property 1 'org-imenu-marker symbol))))
-        (unless (or (null position) (null name)
-                    (string= (car imenu--rescan-item) name))
-          (add-to-list 'symbol-names name)
-          (add-to-list 'name-and-pos (cons name position))))))))
+(defun ido-settings ()
+  "settings for `ido'."
+  (if is-before-emacs-21
+      (setq read-buffer-function 'ido-read-buffer)
+    (ido-everywhere t)
+    (setq ido-define-mode-map-hook 'ido-setup-hook))
 
-(global-set-key "\C-ci" 'ido-goto-symbol) ; or any key you see fit
+  (add-hook ido-define-mode-map-hook 'ido-keys)
+
+  (global-set-key (kbd "C-x C-f") 'ido-find-file)
+  (setq ido-max-directory-size 1000000)
+
+  (defmacro def-ido-enter-command (command)
+    "Make definition of command which execute some command in ido."
+    `(defun ,(am-intern "ido-enter-" command) ()
+       ,(concat "Drop into `" command "' from file switching.")
+       (interactive)
+       (setq ido-exit (quote ,(intern command)))
+       (exit-minibuffer)))
+
+  (require 'util)
+  
+  (apply-args-list-to-fun
+   'def-ido-enter-command
+   `("svn-status-hide"))
+
+  (defun ido-up-directory-clean-text ()
+    "Run C-u `ido-up-directory'."
+    (interactive)
+    (ido-up-directory t))
+
+  (defun ido-clean-text ()
+    "Clean `ido-text'."
+    (interactive)
+    (if (= (minibuffer-prompt-end) (point))
+        (ido-up-directory t)
+      (delete-region (minibuffer-prompt-end) (point-max))))
+
+  (defun ido-goto-home ()
+    (interactive)
+    "Go to home directory when use `ido-find-file'"
+    (ido-set-current-home)
+    (setq ido-exit 'refresh)
+    (exit-minibuffer))
+
+  (defun ido-goto-root ()
+    (interactive)
+    "Go to root directory when use `ido-find-file'"
+    (ido-set-current-directory "/")
+    (setq ido-exit 'refresh)
+    (exit-minibuffer))
+  
+  (defun ido-keys ()
+    "`ido'的按键设置"
+    (let ((map
+           (unless is-before-emacs-21
+             (setq ido-mode-map ido-completion-map))))
+      (eal-define-keys-commonly
+       map 
+       `(("M-."   ido-next-match-dir)
+         ("M-,"   ido-prev-match-dir)
+         ("C-h"   ido-delete-backward-updir)
+         ("M-h"   ido-up-directory)
+         ("M-H"   ido-up-directory-clean-text)
+         ("C-M-h" ido-goto-home)
+         ("C-r"   ido-goto-root)
+         ("C-u"   ido-clean-text)
+         ("M-b"   backward-word)
+         ("C-w"   ido-delete-backward-word-updir)
+         ("C-v"   ido-enter-svn-status-hide)
+         ("C-n"   ido-next-match)
+         ("C-p"   ido-prev-match))))))
+
+(eval-after-load 'ido
+  `(ido-settings))
 
 (provide 'init-ido)

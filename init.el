@@ -90,7 +90,9 @@
 ;; (defconst my-emacs-lisps-path     (concat my-emacs-path "lisps/") "我下载的emacs lisp包的路径")   ;;
 ;; (defconst my-emacs-template-path  (concat my-emacs-lisps-path "template/templates") "")	     ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'cl)
+
 ;; 把`my-emacs-lisps-path'的所有子目录都加到`load-path'里面
 (load (concat my-emacs-path "my-subdirs"))
 (my-add-subdirs-to-load-path "~/.emacs.d/")
@@ -150,7 +152,8 @@
 (require 'init-web-mode)
 (require 'init-yasnippet)
 (require 'init-C)
-
+(require 'init-ido)
+(require 'init-maxframe)
 ;; 用一个很大的kill ring. 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
 
@@ -166,6 +169,28 @@
 (require 'highlight-symbol-settings)
 (require 'my-global-key-settings)
 (require 'init-smex)
+
+
+
+(add-hook 'after-init-hook 'global-flycheck-mode)
+(setq-default flycheck-clang-standard-library "libc++")
+(setq-default flycheck-clang-include-path '("/usr/include/clang/3.0/include"
+					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"
+					    "/usr/include/c++/4.7"
+					    "/usr/include/c++/4.7/i686-linux-gnu"
+					    "/usr/include/c++/4.7/backward"
+					    "/usr/lib/gcc/i686-linux-gnu/4.7/include"
+					    "/usr/local/include"
+					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C/common"
+					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"
+					    "/usr/include/python2.7"
+					    "/usr/lib/gcc/i686-linux-gnu/4.7/include-fixed"
+					    "/usr/include/i386-linux-gnu"
+					    "/usr/include"
+))
+
+;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
+
 
 (provide 'init)
 (eval-when-compile
