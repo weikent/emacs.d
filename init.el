@@ -146,13 +146,21 @@
 (require 'init-color-theme)
 (require 'init-template)
 (require 'init-dired)
+;; (defun cedet-hook () **/
+;;   (require 'init-cedet) **/
+;;   (ecb-activate)) **/
 
-;;(require 'init-cedet)
-(require 'init-doxygen)
+;; (add-hook 'c-mode-common-hook 'cedet-hook) **/
+(require 'init-cedet)
+
+
+;; (require 'init-doxygen)
+(require 'init-doxymacs)
 (require 'init-web-mode)
 (require 'init-yasnippet)
 (require 'init-C)
 (require 'init-ido)
+;;(require 'init-tramp)
 (require 'init-maxframe)
 ;; 用一个很大的kill ring. 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
@@ -169,7 +177,6 @@
 (require 'highlight-symbol-settings)
 (require 'my-global-key-settings)
 (require 'init-smex)
-
 
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
