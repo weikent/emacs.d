@@ -65,15 +65,18 @@ ARCHIVE is the string name of the package archive.")
 ;; Standard package repositories
 ;;------------------------------------------------------------------------------
 
-;;(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
 
+
+(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; We include the org repository for completeness, but don't normally
 ;; use it.
 ;; lock org-mode temporarily
-;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
 ;;------------------------------------------------------------------------------
 ;; Also use Melpa for some packages built straight from VC
@@ -137,6 +140,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'web-mode)
 (require-package 'yasnippet '(0 8 0) nil)
 (require-package 'maxframe)
+(require-package 'flycheck)
 (require-package 'tidy)
 ;;(require-package 'ecb)
 
