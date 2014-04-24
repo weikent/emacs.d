@@ -142,6 +142,10 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'maxframe)
 (require-package 'flycheck)
 (require-package 'tidy)
+(require-package 'js2-mode)
+;;(require-package 'js-comint)
+;;(require-package 'multi-web-mode)
+
 ;;(require-package 'ecb)
 
 

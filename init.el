@@ -156,6 +156,9 @@
 
 ;; (require 'init-doxygen)
 (require 'init-doxymacs)
+;;(require 'init-multi-web-mode)
+(require 'init-js2-mode)
+;;(require 'init-moz)
 (require 'init-web-mode)
 (require 'init-yasnippet)
 (require 'init-C)
@@ -177,28 +180,13 @@
 (require 'highlight-symbol-settings)
 (require 'my-global-key-settings)
 (require 'init-smex)
+(require 'init-flycheck)
 
-
-(add-hook 'after-init-hook 'global-flycheck-mode)
-(setq-default flycheck-clang-standard-library "libc++")
-(setq-default flycheck-clang-include-path '("/usr/include/clang/3.0/include"
-					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"
-					    "/usr/include/c++/4.7"
-					    "/usr/include/c++/4.7/i686-linux-gnu"
-					    "/usr/include/c++/4.7/backward"
-					    "/usr/lib/gcc/i686-linux-gnu/4.7/include"
-					    "/usr/local/include"
-					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C/common"
-					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"
-					    "/usr/include/python2.7"
-					    "/usr/lib/gcc/i686-linux-gnu/4.7/include-fixed"
-					    "/usr/include/i386-linux-gnu"
-					    "/usr/include"
-))
 
 ;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
 
 
+;;(require 'init-javascript)
 (provide 'init)
 (eval-when-compile
   (require 'cl))
