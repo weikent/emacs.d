@@ -1,9 +1,9 @@
-;;; init-js2-mode.el --- 
+;;; init-rainbow.el --- 
 
 ;; Copyright 2014 魏世建
 ;;
 ;; Author: weikent@ubuntu
-;; Version: $Id: init-js2-mode.el,v 0.0 2014/04/23 08:09:57 weikent Exp $
+;; Version: $Id: init-rainbow.el,v 0.0 2014/04/24 02:56:50 weikent Exp $
 ;; Keywords: 
 ;; X-URL: not distributed yet
 
@@ -26,15 +26,14 @@
 ;; 
 
 ;; Put this file into your load-path and the following into your ~/.emacs:
-;;   (require 'init-js2-mode)
+;;   (require 'init-rainbow)
 
 ;;; Code:
+(require 'rainbow-mode)
+(dolist (hook '(css-mode-hook html-mode-hook web-mode-hook sass-mode-hook))
+(add-hook hook 'rainbow-turn-on))
 
-
-;;(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-(provide 'init-js2-mode)
+(provide 'init-rainbow)
 (eval-when-compile
   (require 'cl))
 
@@ -48,4 +47,4 @@
 
 
 
-;;; init-js2-mode.el ends here
+;;; init-rainbow.el ends here

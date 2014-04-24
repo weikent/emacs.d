@@ -160,6 +160,8 @@
 (require 'init-js2-mode)
 ;;(require 'init-moz)
 (require 'init-web-mode)
+(require 'init-zencoding)
+(require 'init-rainbow)
 (require 'init-yasnippet)
 (require 'init-C)
 (require 'init-ido)

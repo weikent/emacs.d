@@ -14,6 +14,13 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.xul?\\'" . web-mode))
 
+
+(require 'web-mode)
+(setq web-mode-markup-indent-offset 4)
+(setq web-mode-css-indent-offset 4)
+(setq web-mode-code-indent-offset 4)
+
+
 ;; (defun flymake-html-init ()
 ;;        (let* ((temp-file (flymake-init-create-temp-buffer-copy
 ;;                           'flymake-create-temp-inplace))

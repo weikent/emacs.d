@@ -105,7 +105,11 @@ From now on:
 - rename profiles likes init-***.el
 - bakup cedet.tar.gz instead of cedet file on git.
 - add semx
-- add web-mode
+- add web-mode (i think web-mode is better than multi-web-mode)
+- add zencoding-mode
+- add js2-mode
+- add rainbow-mode
+
 
 
 Record setps of how to rebuild emacs on a new ubuntu 
