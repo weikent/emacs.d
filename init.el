@@ -155,7 +155,7 @@
 (require 'init-cedet)
 
 
-;; (require 'init-doxygen)
+(require 'init-doxygen)
 ;;(require 'init-doxymacs)
 ;;(require 'init-multi-web-mode)
 (require 'init-js2-mode)

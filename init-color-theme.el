@@ -31,7 +31,7 @@
 ;;; Code:
 
 (require 'color-theme)
-(load-file "~/.emacs.d/color-theme-ahei.el")
+(load-file "~/.emacs.d/site-lisp/color-theme/color-theme-ahei.el")
 ;;(color-theme-molokai)
 (color-theme-ahei)
 
