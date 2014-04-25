@@ -156,7 +156,7 @@
 
 
 ;; (require 'init-doxygen)
-(require 'init-doxymacs)
+;;(require 'init-doxymacs)
 ;;(require 'init-multi-web-mode)
 (require 'init-js2-mode)
 ;;(require 'init-moz)
@@ -167,7 +167,7 @@
 (require 'init-C)
 (require 'init-ido)
 ;;(require 'init-tramp)
-(require 'init-maxframe)
+;;(require 'init-maxframe)
 ;; 用一个很大的kill ring. 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
 

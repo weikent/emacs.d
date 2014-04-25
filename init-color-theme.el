@@ -31,7 +31,9 @@
 ;;; Code:
 
 (require 'color-theme)
-(color-theme-molokai)
+(load-file "~/.emacs.d/color-theme-ahei.el")
+;;(color-theme-molokai)
+(color-theme-ahei)
 
 (provide 'init-color-theme)
 (eval-when-compile

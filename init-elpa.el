@@ -132,14 +132,14 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'yasnippet '(0 8 0) nil)
 (require-package 'company)
 (require-package 'color-theme)
-(require-package 'color-theme-molokai)
+;;(require-package 'color-theme-molokai) ;; if use this colortheme, whould cause wrong file encoding.2014/04/25 16:18:01
 (require-package 'browse-kill-ring)
 ;;(require-package 'xcscope)
 (require-package 'highlight-symbol)
 (require-package 'smex)
 (require-package 'web-mode)
 
-(require-package 'maxframe)
+;;(require-package 'maxframe)   ;; This feature will cause not maximize properly on mac.2014/04/25 16:23:24
 (require-package 'flycheck)
 (require-package 'tidy)
 (require-package 'js2-mode)
