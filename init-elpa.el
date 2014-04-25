@@ -129,7 +129,7 @@ ARCHIVE is the string name of the package archive.")
 
 (package-initialize)
 
-
+(require-package 'yasnippet '(0 8 0) nil)
 (require-package 'company)
 (require-package 'color-theme)
 (require-package 'color-theme-molokai)
@@ -138,7 +138,7 @@ ARCHIVE is the string name of the package archive.")
 (require-package 'highlight-symbol)
 (require-package 'smex)
 (require-package 'web-mode)
-(require-package 'yasnippet '(0 8 0) nil)
+
 (require-package 'maxframe)
 (require-package 'flycheck)
 (require-package 'tidy)

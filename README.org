@@ -104,6 +104,7 @@ From now on:
 - use company instead of auto-complete
 - rename profiles likes init-***.el
 - bakup cedet.tar.gz instead of cedet file on git.
+- start use flycheck for check code C/C++/Python
 - add semx
 - add web-mode (i think web-mode is better than multi-web-mode)
 - add zencoding-mode
@@ -126,6 +127,8 @@ Record setps of how to rebuild emacs on a new ubuntu
 - el-get install RET jedi                    ;;; this can install auto-complete
 - el-get install RET auto-complete-clang     ;;; sometimes, i want use it.
 - in site-lisp folder. tar xzvf cedet-1.1.tar.gz. and into cedet-1.1 folder. run make EMACS=emacs
+- need download pylint from python.org and run "sudo python setup.py install" install it. 
+  after that, run "sudo apt-get install pylint".
 
 
 Then OK~! 

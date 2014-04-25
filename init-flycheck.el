@@ -30,7 +30,10 @@
 
 ;;; Code:
 
-(add-hook 'after-init-hook 'global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(setq-default flycheck-pylintrc "~/.emacs.d/.pylintrc")
+
 (setq-default flycheck-clang-standard-library "libc++")
 (setq-default flycheck-clang-include-path '("/usr/include/clang/3.0/include"
 					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"
@@ -46,6 +49,8 @@
 					    "/usr/include/i386-linux-gnu"
 					    "/usr/include"
 ))
+
+
 
 (provide 'init-flycheck)
 (eval-when-compile
