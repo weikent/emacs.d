@@ -155,7 +155,13 @@
 (require 'init-cedet)
 
 
-(require 'init-doxygen)
+(if *linux*
+    (require 'init-doxymacs))
+
+(if *is-a-mac*
+;;    (require 'init-doxygen))
+    (require 'init-doxymacs))
+
 ;;(require 'init-doxymacs)
 ;;(require 'init-multi-web-mode)
 (require 'init-js2-mode)
