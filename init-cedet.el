@@ -54,6 +54,9 @@
 (setq ecb-auto-activate t
       ecb-tip-of-the-day nil)
 (setq ecb-tip-of-the-day nil)
+;;(setq ecb-help-info-start-file nil)
+;;删除（或重命名.bak）你调用ecb的目录ecb-2.40/info-help/目录下的ecb-info文件,即可不再现实ecb的 “First Steps” 提示
+
 
 (setq ecb-auto-activate t 
       ecb-tip-of-the-day nil 
