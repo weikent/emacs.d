@@ -105,4 +105,4 @@ SYMBOL should be one of `grep-command', `grep-template',
 (eval-after-load "grep"
   `(grep-settings))
 
-(provide 'grep-settings)
+(provide 'init-grep)
