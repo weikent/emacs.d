@@ -15,10 +15,17 @@
 (add-to-list 'auto-mode-alist '("\\.xul?\\'" . web-mode))
 
 
-(require 'web-mode)
+
 (setq web-mode-markup-indent-offset 4)
 (setq web-mode-css-indent-offset 4)
 (setq web-mode-code-indent-offset 4)
+
+
+
+(require 'django-html-mode)
+(require 'django-mode)
+
+(add-to-list 'auto-mode-alist '("\\.djhtml$" . django-html-mode))
 
 
 ;; (defun flymake-html-init ()
