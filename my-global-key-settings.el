@@ -15,6 +15,7 @@
 ;;;; 关闭启动画面
 ;;(setq inhibit-startup-message t)
 
+(setq-default indent-tabs-mode nil)
 
 ;;y/n代替yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
