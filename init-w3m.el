@@ -43,7 +43,7 @@
 (setq w3m-use-cookies t)
 (setq w3m-icon-directory (concat w3m-dir "icons"))
 (setq w3m-use-mule-ucs t)
-(setq w3m-home-page "http://www.google.cn")
+(setq w3m-home-page "http://www.google.com.hk")
 (setq w3m-default-display-inline-images t)
 
 ;; (defun w3m-settings ()

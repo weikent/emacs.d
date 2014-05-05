@@ -171,6 +171,7 @@
 (require 'init-rainbow)
 (require 'init-yasnippet)
 (require 'init-C)
+(require 'init-cscope)
 (require 'init-ido)
 ;;(require 'init-tramp)
 ;;(require 'init-maxframe)
