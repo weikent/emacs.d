@@ -191,6 +191,8 @@
 (require 'init-smex)
 (require 'init-flycheck)
 (require 'init-grep)
+(require 'init-org)
+
 
 ;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
 
