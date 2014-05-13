@@ -30,6 +30,10 @@
 
 ;;; Code:
 
+
+(if *is-a-mac*
+    (add-to-list 'exec-path "/usr/local/Cellar/w3m/0.5.3/bin"))
+
 (require 'w3m)
 (require 'w3m-lnum)
 (require 'util)
@@ -38,6 +42,9 @@
 (defvar w3m-buffer-name (concat w3m-buffer-name-prefix "*") "Name of w3m buffer")
 (defvar w3m-bookmark-buffer-name (concat w3m-buffer-name-prefix "-bookmark*") "Name of w3m buffer")
 (defvar w3m-dir "~/.emacs.d/site-lisp/emacs-w3m/" "Dir of w3m.")
+
+
+
 
 (setq w3m-command-arguments '("-cookie" "-F"))
 (setq w3m-use-cookies t)
@@ -162,13 +169,13 @@
             (setq overlay (make-overlay (point) (1+ (point)))
                   num (format "[%d]" (incf i)))
             (w3m-static-if (featurep 'xemacs)
-                           (progn
-                             (overlay-put overlay 'before-string num)
-                             (set-glyph-face (extent-begin-glyph overlay)
-                                             'w3m-link-numbering))
-                           (w3m-add-face-property 0 (length num) 'w3m-link-numbering num)
-                           (overlay-put overlay 'before-string num)
-                           (overlay-put overlay 'evaporate t))
+                (progn
+                  (overlay-put overlay 'before-string num)
+                  (set-glyph-face (extent-begin-glyph overlay)
+                                  'w3m-link-numbering))
+              (w3m-add-face-property 0 (length num) 'w3m-link-numbering num)
+              (overlay-put overlay 'before-string num)
+              (overlay-put overlay 'evaporate t))
             (overlay-put overlay 'w3m-link-numbering-overlay i)))))))
 
 (apply-define-key
