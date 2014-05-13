@@ -37,6 +37,7 @@
 (setq-default flycheck-clang-standard-library "libc++")
 (setq-default flycheck-clang-include-path '("/usr/include/clang/3.0/include"
 					    "/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"
+					    "/media/psf/Home/work/SRC/trunk/isockets/Comm_Platform/C1.1/common"
 					    "/usr/include/c++/4.7"
 					    "/usr/include/c++/4.7/i686-linux-gnu"
 					    "/usr/include/c++/4.7/backward"

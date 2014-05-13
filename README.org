@@ -110,7 +110,7 @@ From now on:
 - add zencoding-mode
 - add js2-mode
 - add rainbow-mode
-
+- add w3m for browser
 
 
 Record setps of how to rebuild emacs on a new ubuntu 
@@ -122,10 +122,12 @@ Record setps of how to rebuild emacs on a new ubuntu
 - sudo apt-get install doxymacs         : for comment
 - sudo apt-get install automake         : for el-get install doxymacs
 - sudo apt-get install libxml libxml2-dev : for el-get install doxymacs
+- sudo apt-get install w3m
 - el-get install RET doxymacs
 - el-get install RET doxymacs-yard
 - el-get install RET jedi                    ;;; this can install auto-complete
 - el-get install RET auto-complete-clang     ;;; sometimes, i want use it.
+- el-get install RET emacs-w3m
 - in site-lisp folder. tar xzvf cedet-1.1.tar.gz. and into cedet-1.1 folder. run make EMACS=emacs
 - need download pylint from python.org and run "sudo python setup.py install" install it. 
   after that, run "sudo apt-get install pylint".
