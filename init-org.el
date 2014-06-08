@@ -42,13 +42,13 @@
 (setq org-log-done t) 
 
 ;;(require 'org-install)
-;;(require 'org-publish)
+(require 'org-publish)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (add-hook 'org-mode-hook 
-(lambda () (setq truncate-lines nil)))
- 
+          (lambda () (setq truncate-lines nil)))
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
@@ -58,8 +58,8 @@
 
 (setq org-publish-project-alist
       '(("note-org"
-         :base-directory "~/StudyNotes/org/org"
-         :publishing-directory "~/StudyNotes/org/publish"
+         :base-directory "~/Dropbox/StudyNotes/org/org/"
+         :publishing-directory "~/Dropbox/StudyNotes/org/publish/"
          :base-extension "org"
          :recursive t
          :publishing-function org-publish-org-to-html
@@ -72,14 +72,14 @@
     href=\"./style/emacs.css\"
     type=\"text/css\"/>")
         ("note-static"
-         :base-directory "~/StudyNotes/org/org"
-         :publishing-directory "~/StudyNotes/org/publish"
+         :base-directory "~/Dropbox/StudyNotes/org/org/"
+         :publishing-directory "~/Dropbox/StudyNotes/org/publish/"
          :recursive t
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
          :publishing-function org-publish-attachment)
         ("note" 
          :components ("note-org" "note-static")
-;;         :author "shijian.wei@gmail.com"
+         ;;         :author "shijian.wei@gmail.com"
          )))
 
 (setq org-startup-indented t)
@@ -93,7 +93,7 @@
   (interactive)
   (if (face-underline-p 'org-link)
       (set-face-underline-p 'org-link nil)
-      (set-face-underline-p 'org-link t))
+    (set-face-underline-p 'org-link t))
   (iimage-mode))
 
 ;; iimage mode
@@ -111,7 +111,7 @@
   (interactive)
   (if (face-underline-p 'org-link)
       (set-face-underline-p 'org-link nil)
-      (set-face-underline-p 'org-link t))
+    (set-face-underline-p 'org-link t))
   (iimage-mode))
 
 (global-set-key (read-kbd-macro "<C-tab>") 'my-insert-tab) 
