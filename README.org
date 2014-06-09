@@ -134,3 +134,9 @@ Record setps of how to rebuild emacs on a new ubuntu
 
 
 Then OK~! 
+
+* 2014-6-9
+今天学习一种方法，把html转成pdf。就是为了方便在ipad上看org的笔记。。
+- sudo apt-get install wkhtmltopdf
+- sudo ln -s /usr/bin/wkhtmltopdf /usr/local/bin/html2pdf
+- html2pdf *.html *.pdf 即可。虽然感觉有点小瑕疵。但基本完美啦。
