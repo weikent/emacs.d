@@ -128,6 +128,7 @@ Record setps of how to rebuild emacs on a new ubuntu
 - el-get install RET jedi                    ;;; this can install auto-complete
 - el-get install RET auto-complete-clang     ;;; sometimes, i want use it.
 - el-get install RET emacs-w3m
+- el-get install RET hexview-mode
 - in site-lisp folder. tar xzvf cedet-1.1.tar.gz. and into cedet-1.1 folder. run make EMACS=emacs
 - need download pylint from python.org and run "sudo python setup.py install" install it. 
   after that, run "sudo apt-get install pylint".
@@ -140,3 +141,6 @@ Then OK~!
 - sudo apt-get install wkhtmltopdf
 - sudo ln -s /usr/bin/wkhtmltopdf /usr/local/bin/html2pdf
 - html2pdf *.html *.pdf 即可。虽然感觉有点小瑕疵。但基本完美啦。
+
+* 2014-7-14
+添加hexView-mode，可以使用el-get下载，然后(require 'hexview-mode)

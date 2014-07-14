@@ -195,7 +195,9 @@
 (require 'init-org)
 
 
-(require 'init-w3m)
+(require 'hexview-mode)
+
+;;(require 'init-w3m)
 ;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
 
 
