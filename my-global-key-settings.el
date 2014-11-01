@@ -272,7 +272,7 @@
   (insert "    "))
 
 ;; (global-set-key (read-kbd-macro "<C-tab>") 'my-insert-tab) 
-(global-set-key (kbd "<f12> t") 'my-insert-tab)
+(global-set-key (kbd "<C-tab>") 'my-insert-tab)
 ;;删除的东西。
 ;;(global-set-key [(f2)] 'browse-kill-ring)
 (global-set-key (kbd "<f12> k") 'browse-kill-ring)

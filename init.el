@@ -158,9 +158,9 @@
 (if *linux*
     (require 'init-doxymacs))
 
-(if *is-a-mac*
+;;(if *is-a-mac*
 ;;    (require 'init-doxygen))
-    (require 'init-doxymacs))
+;;    (require 'init-doxymacs))
 
 ;;(require 'init-doxymacs)
 ;;(require 'init-multi-web-mode)
