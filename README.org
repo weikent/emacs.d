@@ -144,3 +144,32 @@ Then OK~!
 
 * 2014-7-14
 添加hexView-mode，可以使用el-get下载，然后(require 'hexview-mode)
+* 2014-10-31
+今天在mac下安装了virtualenv。yeah
+在这里记录一下流程
+
+- 安装Homebrew
+在用户目录下创建一个bash_profile的文件。
+在里面写上export PATH=/usr/local/bin:PATH
+
+- brew install readline sqlite gdbm pkg-config
+
+- brew install python --framework --universal
+--framework参数让Python成为一个framework，原作者说这会带来好处，就这么用吧；--universial会编译一个通用的(32/64位)版本，这样适用性更广一些。 之后还需要修改一下.bash_profile
+
+- export PATH=/usr/local/share/python:$PATH
+重启terminal生效。 接下来，下面的任何一个命令如果不成功，记得给权限 sudo 最后需要告诉Lion，将系统链接指向新的Python安装环境。
+
+cd /System/Library/Frameworks/Python.framework/Versions
+sudo rm Current
+ln -s /usr/local/Cellar/python/2.7.2/Frameworks/Python.framework/Versions/Current
+
+- 安装pip
+easy_install pip
+- install virtualenv
+pip install virtualenv
+
+[[the virtualenv exec file is in the floder /usr/local/bin,  mv it the /usr/bin]]
+
+
+
