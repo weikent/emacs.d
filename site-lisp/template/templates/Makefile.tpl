@@ -6,7 +6,7 @@
 ## X-URL: (>>>2<<<)
 
 
-### (>>>FILE<<<) ends here
+
 
 
 
@@ -17,6 +17,10 @@ VPATH =
 INCLUDE = 
 WALL = -Wall
 C99 = #-std=c99
+THREAD = -lpthread
+OPTIMIZE = -O2
+
+
 
 SOURCECPP =
 
@@ -42,7 +46,7 @@ all = clean $(TARGET)
 	$(CXX) -c $(WALL) $< -o $@ $(INCLUDE)
 
 $(TARGET): $(OBJECTSC) $(OBJECTSCPP)
-	$(CC) -o $(TARGET) $(INCLUDE)  $(OBJECTSC) $(OBJECTSCPP)  -lpthread -lm -O2 $(C99)
+	$(CC) -o $(TARGET) $(INCLUDE)  $(OBJECTSC) $(OBJECTSCPP) $(THREAD) $(OPTIMIZE) $(C99)
 
 
 clean:
@@ -50,3 +54,8 @@ clean:
 
 install:
 #	cp *.h *.cpp *.c -r ../wpa
+
+
+
+
+### (>>>FILE<<<) ends here
