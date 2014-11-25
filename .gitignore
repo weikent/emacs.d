@@ -61,3 +61,4 @@ elpa
 org/publish/*.html
 .rope*
 elpa
+session.*
