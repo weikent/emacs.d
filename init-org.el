@@ -44,6 +44,13 @@
 ;;(require 'org-install)
 (require 'org-publish)
 
+(defvar orgBase "")
+(defvar orgPublish "")
+(setq orgBase "/media/psf/Home/KuaiPan/Org/")
+(setq orgPublish "/media/psf/Home/KuaiPan/Org/Publish/")
+
+
+
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (add-hook 'org-mode-hook 
@@ -55,11 +62,14 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
+;;http://orgmode.org/manual/Export-settings.html
+;;http://orgmode.org/manual/Publishing-options.html
+(setq org-export-with-section-numbers 10)
 
 (setq org-publish-project-alist
       '(("note-org"
-         :base-directory "~/Dropbox/StudyNotes/org/org/"
-         :publishing-directory "~/Dropbox/StudyNotes/org/publish/"
+         :base-directory "/media/psf/Home/KuaiPan/Org/"
+         :publishing-directory "/media/psf/Home/KuaiPan/Org/Publish"
          :base-extension "org"
          :recursive t
          :publishing-function org-publish-org-to-html
@@ -67,20 +77,53 @@
          :index-filename "index.org"
          :index-title "index"
          :link-home "index.html"
-         :section-numbers nil
-         :style "<link rel=\"stylesheet\"
-    href=\"./style/emacs.css\"
-    type=\"text/css\"/>")
+         :section-numbers 10
+         :style "<style type='text/css'>
+
+    body {
+        padding: 50px 150px 50px 150px;
+        border-style: solid;
+        border-width: 20pt;
+        border-color: #790000;
+    }
+
+    body, p, li {
+            /*font-family: monospace;*/
+                font-family: \"Microsoft YaHei\" ! important;
+            font-size: 1em;
+    }
+
+.outline-2{
+    margin-left:30px;
+}
+.outline-3{
+    margin-left:50px;
+}
+.outline-4{
+    margin-left:70px;
+}
+.outline-5{
+    margin-left:90px;
+}
+
+p{
+    margin-left:15px;
+}
+
+ul{
+    margin-left:15px;
+}
+</style>"
         ("note-static"
-         :base-directory "~/Dropbox/StudyNotes/org/org/"
-         :publishing-directory "~/Dropbox/StudyNotes/org/publish/"
+         :base-directory "/media/psf/Home/KuaiPan/Org/"
+         :publishing-directory "/media/psf/Home/KuaiPan/Org/publish"
          :recursive t
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
          :publishing-function org-publish-attachment)
         ("note" 
          :components ("note-org" "note-static")
          ;;         :author "shijian.wei@gmail.com"
-         )))
+         ))))
 
 (setq org-startup-indented t)
 
@@ -114,7 +157,7 @@
     (set-face-underline-p 'org-link t))
   (iimage-mode))
 
-(global-set-key (read-kbd-macro "<C-tab>") 'my-insert-tab) 
+;; (global-set-key (read-kbd-macro "<C-tab>") 'my-insert-tab) 
 
 (provide 'init-org)
 (eval-when-compile
