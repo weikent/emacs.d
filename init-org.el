@@ -44,10 +44,6 @@
 ;;(require 'org-install)
 (require 'org-publish)
 
-(defvar orgBase "")
-(defvar orgPublish "")
-(setq orgBase "/media/psf/Home/KuaiPan/Org/")
-(setq orgPublish "/media/psf/Home/KuaiPan/Org/Publish/")
 
 
 
@@ -65,11 +61,34 @@
 ;;http://orgmode.org/manual/Export-settings.html
 ;;http://orgmode.org/manual/Publishing-options.html
 (setq org-export-with-section-numbers 10)
+;; 设置在org-mode里面看到语法高亮的效果
+(require 'htmlize)
+(setq org-src-fontify-natively t)
+;; (org-block-begin-line
+;;  ((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF"))))
+;; (org-block-background
+;;  ((t (:background "#FFFFEA"))))
+;; (org-block-end-line
+;;  ((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF"))))
+;; (defface org-block-begin-line
+;;   '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+;;   "Face used for the line delimiting the begin of source blocks.")
+
+;; (defface org-block-background
+;;   '((t (:background "#FFFFEA")))
+;;   "Face used for the source block background.")
+
+;; (defface org-block-end-line
+;;   '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+;;   "Face used for the line delimiting the end of source blocks.")
+
+
+
 
 (setq org-publish-project-alist
-      '(("note-org"
-         :base-directory "/media/psf/Home/KuaiPan/Org/"
-         :publishing-directory "/media/psf/Home/KuaiPan/Org/Publish"
+      '(("Org"
+         :base-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Org"
+         :publishing-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Publish"
          :base-extension "org"
          :recursive t
          :publishing-function org-publish-org-to-html
@@ -78,52 +97,27 @@
          :index-title "index"
          :link-home "index.html"
          :section-numbers 10
-         :style "<style type='text/css'>
-
-    body {
-        padding: 50px 150px 50px 150px;
-        border-style: solid;
-        border-width: 20pt;
-        border-color: #790000;
-    }
-
-    body, p, li {
-            /*font-family: monospace;*/
-                font-family: \"Microsoft YaHei\" ! important;
-            font-size: 1em;
-    }
-
-.outline-2{
-    margin-left:30px;
-}
-.outline-3{
-    margin-left:50px;
-}
-.outline-4{
-    margin-left:70px;
-}
-.outline-5{
-    margin-left:90px;
-}
-
-p{
-    margin-left:15px;
-}
-
-ul{
-    margin-left:15px;
-}
-</style>"
-        ("note-static"
-         :base-directory "/media/psf/Home/KuaiPan/Org/"
-         :publishing-directory "/media/psf/Home/KuaiPan/Org/publish"
+         :htmlized-source t
+         :style "<link rel=\"stylesheet\" href=\"../emacs.css\" type=\"text/css\"/>"
+         )
+        ("images"
+         :base-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Org"
+         :publishing-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Publish"
          :recursive t
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
-         :publishing-function org-publish-attachment)
-        ("note" 
-         :components ("note-org" "note-static")
-         ;;         :author "shijian.wei@gmail.com"
-         ))))
+         :base-extension "png\\|jpeg\\|gif"
+         :publishing-function org-publish-attachment
+         )
+        ("Css"
+         :base-directory "~/.emacs.d/Org_Css/"
+         :publishing-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Publish"
+         :recursive t
+         :base-extension "css"
+         :publishing-function org-publish-attachment
+         )
+        ("publish" 
+         :components ("Org" "images" "Css")
+         :author "wei.shijian@gmail.com"
+         )))
 
 (setq org-startup-indented t)
 
@@ -149,13 +143,13 @@ ul{
 
 ;; 如果想在 Emacs org 模式里启用 iimage 模式，把下面的代码放到配置文件里，则可以在 Emacs Org 的编辑区里显示图片。
 
-(defun org-toggle-iimage-in-org ()
-  "display images in your org file"
-  (interactive)
-  (if (face-underline-p 'org-link)
-      (set-face-underline-p 'org-link nil)
-    (set-face-underline-p 'org-link t))
-  (iimage-mode))
+;; (defun org-toggle-iimage-in-org ()
+;;   "display images in your org file"
+;;   (interactive)
+;;   (if (face-underline-p 'org-link)
+;;       (set-face-underline-p 'org-link nil)
+;;     (set-face-underline-p 'org-link t))
+;;   (iimage-mode))
 
 ;; (global-set-key (read-kbd-macro "<C-tab>") 'my-insert-tab) 
 
@@ -174,3 +168,53 @@ ul{
 
 
 ;;; init-org.el ends here
+
+
+
+;;  "<style type='text/css'>
+
+;;     body {
+;;         padding: 50px 150px 50px 150px;
+;;         border-style: solid;
+;;         border-width: 20pt;
+;;         border-color: #790000;
+;;     }
+
+;;     body, p, li {
+;;             /*font-family: monospace;*/
+;;                 font-family: \"Microsoft YaHei\" ! important;
+;;             font-size: 1em;
+;;     }
+
+;; .outline-2{
+;;     margin-left:30px;
+;; }
+;; .outline-text-2{
+;;     margin-left:20px;
+;; }
+;; .outline-3{
+;;     margin-left:40px;
+;; }
+;; .outline-4{
+;;     margin-left:50px;
+;; }
+;; .outline-5{
+;;     margin-left:60px;
+;; }
+;; /*
+;; p{
+;;     margin-left:10px;
+;; }
+;; */
+;; ul{
+;;     margin-left:-20px;
+;; }
+;; li{
+;;     color:blue;
+;; }
+
+;; </style>"
+
+
+;;这是一个可以引用外部css链接的方式，但由于无法确定css的位置，所以放弃了
+;;"<link rel=\"stylesheet\" href=\"Org_Css/emacs.css\" type=\"text/css\"/>"

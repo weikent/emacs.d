@@ -198,7 +198,7 @@ which is options for `diff'."
     (define-prefix-command 'dired-slash-map)
     (eal-define-keys-commonly
      dired-mode-map
-     `(("C-h"         dired-up-directory-same-buffer)
+     `(;;("C-h"         dired-up-directory-same-buffer)  与C-h m 之类的帮助命令重复
        ("<backspace>" dired-up-directory-same-buffer)
        ("'"           switch-to-other-buffer)
        ("/"           dired-slash-map)
@@ -213,7 +213,7 @@ which is options for `diff'."
        ;; 让dired只使用一个buffer
        ("RET"         dired-lis-find-file-reuse-dir-buffer)
        ("<return>"    dired-lis-find-file-reuse-dir-buffer)
-       ("M"           wuxch-mark-all-files-directories)
+;;       ("M"           wuxch-mark-all-files-directories)
        ("g"           revert-buffer)
        ("M-o"         dired-omit-mode)
        ("M-Y"         dired-redo)

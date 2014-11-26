@@ -177,3 +177,9 @@ pip install virtualenv
 在mac安装emacs，没有其他什么问题，只是el-get下载安装jedi的时候有时会有问题。
 但有一个解决办法，可以把ubuntu下的el-get目录下 的东西全部拷贝到mac下el-get目录中。
 
+* 2014/11/26 16:51:13
+- 在init-elpa.el中增加了下载orgmode的代码以及htmlize的代码。
+htmlize可以配合orgmode来使生成的html中的代码关键字高亮
+- 取消了C-h的绑定
+- 对org mode 中的title自动补全做了修改。
+
