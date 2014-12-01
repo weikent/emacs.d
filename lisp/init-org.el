@@ -1,3 +1,4 @@
+
 ;;; init-org.el --- 
 
 ;; Copyright 2014 世建 魏
@@ -42,7 +43,7 @@
 (setq org-log-done t) 
 
 ;;(require 'org-install)
-(require 'org-publish)
+;;(require 'org-publish)
 
 
 
@@ -81,7 +82,6 @@
 ;; (defface org-block-end-line
 ;;   '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
 ;;   "Face used for the line delimiting the end of source blocks.")
-
 
 
 

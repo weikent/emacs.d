@@ -153,9 +153,10 @@
 ;;设置日历的一些颜色
 (setq calendar-load-hook
 '(lambda ()
-(set-face-foreground 'diary-face "skyblue")
-(set-face-background 'holiday-face "slate blue")
-(set-face-foreground 'holiday-face "white")))
+;; (set-face-foreground 'diary-face "skyblue")
+;; (set-face-background 'holiday-face "slate blue")
+   ;; (set-face-foreground 'holiday-face "white")))
+   ))
 ;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
 ;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
 (setq calendar-latitude +39.54)

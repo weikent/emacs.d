@@ -84,7 +84,7 @@
   (when (file-regular-p file)
       (load file)))
 
-(defconst my-emacs-path           "~/.emacs.d/" "我的emacs相关配置文件的路径")
+(defconst my-emacs-path           "~/.emacs.d/lisp/" "我的emacs相关配置文件的路径")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (defconst my-emacs-my-lisps-path  (concat my-emacs-path "lisps/") "我自己写的emacs lisp包的路径") ;;
 ;; (defconst my-emacs-lisps-path     (concat my-emacs-path "lisps/") "我下载的emacs lisp包的路径")   ;;
@@ -94,8 +94,8 @@
 (require 'cl)
 
 ;; 把`my-emacs-lisps-path'的所有子目录都加到`load-path'里面
-(load (concat my-emacs-path "my-subdirs"))
-(my-add-subdirs-to-load-path "~/.emacs.d/")
+(load (concat my-emacs-path "init-path"))
+(my-add-subdirs-to-load-path my-emacs-path)
 ;;(my-add-subdirs-to-load-path my-emacs-my-lisps-path)
 
 
@@ -155,20 +155,20 @@
 (require 'init-cedet)
 
 
-(if *linux*
-    (require 'init-doxymacs))
+;;(if *linux*
+;;    (require 'init-doxymacs))
 
 ;;(if *is-a-mac*
 ;;    (require 'init-doxygen))
 ;;    (require 'init-doxymacs))
 
-;;(require 'init-doxymacs)
+(require 'init-doxymacs)
 ;;(require 'init-multi-web-mode)
 (require 'init-js2-mode)
 ;;(require 'init-moz)
 (require 'init-web-mode)
 (require 'init-zencoding)
-(require 'init-rainbow)
+;;(require 'init-rainbow)
 (require 'init-yasnippet)
 (require 'init-C)
 (require 'init-cscope)
@@ -193,8 +193,6 @@
 (require 'init-flycheck)
 (require 'init-grep)
 (require 'init-org)
-
-
 (require 'hexview-mode)
 
 ;;(require 'init-w3m)

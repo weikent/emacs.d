@@ -183,3 +183,13 @@ htmlize可以配合orgmode来使生成的html中的代码关键字高亮
 - 取消了C-h的绑定
 - 对org mode 中的title自动补全做了修改。
 
+* 2014/12/01 14:51:04
+- 使用emacs在git的源码来编译emacs。
+    - origin	git://git.sv.gnu.org/emacs.git
+    - 可以直接make，然后根据错误来查看缺少什么。再补充什么
+    - 然后 make install。
+    - 编译完成后，emacs ersion is 25.。。。。
+
+- 在emacs25中，把所有都el文件放到一个lisp目录下。
+- 同时，暂时先不是用elpa来下载扩展包。而是使用elget。
+- 用init-path.el替换my-subdir.el

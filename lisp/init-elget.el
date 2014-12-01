@@ -22,7 +22,45 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
-(el-get 'sync)
+(setq my:el-get-packages
+      '(
+	;;cedet
+	yasnippet
+        org-mode
+        org-publish
+        anything
+	color-theme
+	browse-kill-ring
+	highlight-symbol
+	web-mode
+	doxymacs
+        dropdown-list
+        zencoding-mode
+        htmlize
+        tidy
+        company-mode
+        flycheck
+	auto-complete
+	auto-complete-clang
+	hexview-mode
+	autopair
+        color-theme
+        rainbow-mode
+	jedi
+;;        emms
+;;        dired-sort
+;;        auto-dictionnary
+;;        dired+
+;;        google-maps
+;;        org2blog
+;;        switch-window
+;;        sr-speedbar
+;;        typopunct
+        ))
+
+(el-get 'sync my:el-get-packages)
+
+;;(el-get 'sync)
 
 
 (provide 'init-elget)
