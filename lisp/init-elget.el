@@ -26,9 +26,10 @@
       '(
 	;;cedet
 	yasnippet
-        org-mode
-        org-publish
-        anything
+        ;; org-mode
+        ;; org-publish
+        ;;        anything ;;use helm to replace
+        helm
 	color-theme
 	browse-kill-ring
 	highlight-symbol
@@ -36,7 +37,7 @@
 	doxymacs
         dropdown-list
         zencoding-mode
-        htmlize
+;;        htmlize  ;;版本过新。orgmode会出错。使用elpa下载老版本
         tidy
         company-mode
         flycheck
@@ -45,7 +46,7 @@
 	hexview-mode
 	autopair
         color-theme
-        rainbow-mode
+        ;;rainbow-mode    ;;现阶段2014/12/02 14:04:03  使用elget下载的htmlize.el中为空。
 	jedi
 ;;        emms
 ;;        dired-sort

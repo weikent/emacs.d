@@ -119,19 +119,20 @@ Record setps of how to rebuild emacs on a new ubuntu
 - sudo apt-get install python-dev       : for jedi
 - sudo apt-get install python-virtualenv : for jedi
 - sudo apt-get install ttf-incon...     : ubuntu font
-- sudo apt-get install doxymacs         : for comment
+# - sudo apt-get install doxymacs         : for comment   : 这个也不用了。
 - sudo apt-get install automake         : for el-get install doxymacs
 - sudo apt-get install libxml libxml2-dev : for el-get install doxymacs
 - sudo apt-get install w3m
-- el-get install RET doxymacs
-- el-get install RET doxymacs-yard
-- el-get install RET jedi                    ;;; this can install auto-complete
-- el-get install RET auto-complete-clang     ;;; sometimes, i want use it.
-- el-get install RET emacs-w3m
-- el-get install RET hexview-mode
-- in site-lisp folder. tar xzvf cedet-1.1.tar.gz. and into cedet-1.1 folder. run make EMACS=emacs
-- need download pylint from python.org and run "sudo python setup.py install" install it. 
-  after that, run "sudo apt-get install pylint".
+# 使用elget自动安装这些文件。不用手动安装了。
+# - el-get install RET doxymacs
+# - el-get install RET doxymacs-yard
+# - el-get install RET jedi                    ;;; this can install auto-complete
+# - el-get install RET auto-complete-clang     ;;; sometimes, i want use it.
+# - el-get install RET emacs-w3m
+# - el-get install RET hexview-mode
+# - in site-lisp folder. tar xzvf cedet-1.1.tar.gz. and into cedet-1.1 folder. run make EMACS=emacs
+# - need download pylint from python.org and run "sudo python setup.py install" install it. 
+#   after that, run "sudo apt-get install pylint".
 
 
 Then OK~! 
@@ -193,3 +194,9 @@ htmlize可以配合orgmode来使生成的html中的代码关键字高亮
 - 在emacs25中，把所有都el文件放到一个lisp目录下。
 - 同时，暂时先不是用elpa来下载扩展包。而是使用elget。
 - 用init-path.el替换my-subdir.el
+
+
+* 2014/12/02 14:00:00这时间掐的。。
+- 使用elget和elpa同时管理扩展包。各有个的不妨便。
+- 使用helm
+- 不使用cedet了。貌似我没用到什么cedet的功能。

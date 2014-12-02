@@ -6,8 +6,8 @@
 (add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
 
 
-(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;;(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; We include the org repository for completeness, but don't normally
 ;; use it.
@@ -29,9 +29,9 @@
 ;;    flycheck
 ;;    tidy
 ;;    zencoding-mode
-;;    org
-;;    org-publish
-;;    htmlize
+    rainbow-mode
+    org
+    htmlize
     )
   "A list of packages to ensure are installed at launch.")
 

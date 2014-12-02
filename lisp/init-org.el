@@ -38,26 +38,29 @@
 ;;(add-to-list 'load-path "~/org-mode/lisp")
 ;;(add-to-list 'load-path "~/org-mode/contrib/lisp")
 (message "start org-mode")
+
 (require 'org)
 
 (setq org-log-done t) 
 
 ;;(require 'org-install)
-;;(require 'org-publish)
+;;(require 'org-publish) ;; 在org8.0中被ox-publish替代
+(require 'ox-publish)
 
 
+;; 这些快捷键我都不知道是干啥的。
+;; (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+;; (add-hook 'org-mode-hook 'turn-on-font-lock)
+;; (add-hook 'org-mode-hook 
+;;           (lambda () (setq truncate-lines nil)))
+
+;; (global-set-key "\C-cl" 'org-store-link)
+;; (global-set-key "\C-ca" 'org-agenda)
+;; (global-set-key "\C-cb" 'org-iswitchb)
+;; (define-key global-map "\C-cl" 'org-store-link)
+;; (define-key global-map "\C-ca" 'org-agenda)
 
 
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(add-hook 'org-mode-hook 'turn-on-font-lock)
-(add-hook 'org-mode-hook 
-          (lambda () (setq truncate-lines nil)))
-
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
 
 ;;http://orgmode.org/manual/Export-settings.html
 ;;http://orgmode.org/manual/Publishing-options.html
@@ -91,14 +94,14 @@
          :publishing-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Publish"
          :base-extension "org"
          :recursive t
-         :publishing-function org-publish-org-to-html
+         :publishing-function org-html-publish-to-html ;;org-publish-org-to-html
          :auto-index nil
-         :index-filename "index.org"
-         :index-title "index"
-         :link-home "index.html"
+         ;; :index-filename "index.org"
+         ;; :index-title "index"
+         ;; :link-home "index.html"
          :section-numbers 10
          :htmlized-source t
-         :style "<link rel=\"stylesheet\" href=\"../emacs.css\" type=\"text/css\"/>"
+         :html-head "<link rel=\"stylesheet\" href=\"../emacs.css\" type=\"text/css\"/>"
          )
         ("images"
          :base-directory "/media/psf/Home/KuaiPan/Org_Git/Org_Org"

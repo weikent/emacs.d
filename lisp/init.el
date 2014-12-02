@@ -152,13 +152,13 @@
 ;;   (ecb-activate)) **/
 
 ;; (add-hook 'c-mode-common-hook 'cedet-hook) **/
-(require 'init-cedet)
+;; (require 'init-cedet)
 
 
-;;(if *linux*
+;; (if *linux*
 ;;    (require 'init-doxymacs))
 
-;;(if *is-a-mac*
+;; (if *is-a-mac*
 ;;    (require 'init-doxygen))
 ;;    (require 'init-doxymacs))
 
@@ -168,7 +168,7 @@
 ;;(require 'init-moz)
 (require 'init-web-mode)
 (require 'init-zencoding)
-;;(require 'init-rainbow)
+(require 'init-rainbow)
 (require 'init-yasnippet)
 (require 'init-C)
 (require 'init-cscope)
@@ -186,10 +186,11 @@
 ;; 高亮当前行
 (require 'hl-line-settings)
 
+(require 'init-helm)
 (require 'init-font)
 (require 'highlight-symbol-settings)
-(require 'my-global-key-settings)
-(require 'init-smex)
+
+;;(require 'init-smex)
 (require 'init-flycheck)
 (require 'init-grep)
 (require 'init-org)
@@ -198,7 +199,7 @@
 ;;(require 'init-w3m)
 ;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
 
-
+ (require 'my-global-key-settings)
 ;;(require 'init-javascript)
 (provide 'init)
 (eval-when-compile
