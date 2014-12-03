@@ -8,7 +8,7 @@
 
 
 
-
+(require 'cl)
 
 ;; C语言设置  
 (defun my-c-mode-hook ()  
@@ -27,6 +27,7 @@
 (c-add-style "mystyle" mystyle)
 (defun myhook()
   (setq indent-tabs-mode nil)
+  
   (c-set-style "mystyle"))
 (add-hook 'c++-mode-hook 'myhook)
 (add-hook 'c-mode-hook 'myhook)
@@ -47,9 +48,15 @@
 ;; ;; (add-hook 'c-mode-hook 'my-c-mode-hook)
 
 (add-hook 'c++-mode-hook
-          (lambda () (setq comment-start "/* " comment-end " */")))
+          (
+	   lambda ()
+		  (setq comment-start "/* " comment-end " */")
+		  (define-key c++-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)
+		  )
+	  )
 (add-hook 'c-mode-hook
-          (lambda () (setq comment-start "/* " comment-end " */")))
+          (lambda () (setq comment-start "/* " comment-end " */")
+	    (define-key c-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)))
 ;; ;; (add-hook 'c++-mode-hook 'my-c-mode-hook)
 
 
@@ -74,7 +81,16 @@
 (require 'eassist nil 'noerror)
 (global-set-key [M-f12] 'eassist-switch-h-cpp)
 ;;(define-key c-mode-base-map [M-f12] 'eassist-switch-h-cpp)
+(add-hook 'c-mode-common-hook   'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+(add-hook 'java-mode-hook       'hs-minor-mode)
+(add-hook 'ess-mode-hook       'hs-minor-mode)
+(add-hook 'perl-mode-hook       'hs-minor-mode)
+(add-hook 'sh-mode-hook         'hs-minor-mode)
 
+(define-key python-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)
+;;(define-key c++-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)
+;;(define-key c++-mode-map "\C-ct" 'some-function-i-want-to-call)
 
 (provide 'init-C)
 
