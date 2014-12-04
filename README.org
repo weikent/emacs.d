@@ -200,3 +200,7 @@ htmlize可以配合orgmode来使生成的html中的代码关键字高亮
 - 使用elget和elpa同时管理扩展包。各有个的不妨便。
 - 使用helm
 - 不使用cedet了。貌似我没用到什么cedet的功能。
+
+* 2014/12/04 15:40:10
+- 替换dired。使用elget来下载
+- 使用ahei的mode-line配色和设置

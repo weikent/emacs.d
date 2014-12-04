@@ -51,7 +51,9 @@
 ;;        emms
 ;;        dired-sort
 ;;        auto-dictionnary
-;;        dired+
+        dired+
+        dired-lis
+	dired-isearch
 ;;        google-maps
 ;;        org2blog
 ;;        switch-window

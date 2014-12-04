@@ -302,6 +302,7 @@
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 
@@ -315,6 +316,43 @@
     (byte-compile-file buffer-file-name)))
 
 (add-hook 'after-save-hook 'byte-compile-current-buffer)
+
+
+
+
+;; copy form https://github.com/cedricporter/vim-emacs-setting/blob/master/emacs/.emacs.d/configs/my-ui.el
+;; ;; ==================== line count ====================
+;; (defvar my-mode-line-buffer-line-count nil)
+;; (make-variable-buffer-local 'my-mode-line-buffer-line-count)
+
+;; (defun my-mode-line-count-lines ()
+;;   (setq my-mode-line-buffer-line-count (int-to-string (count-lines (point-min) (point-max)))))
+
+;; (add-hook 'find-file-hook 'my-mode-line-count-lines)
+;; (add-hook 'after-save-hook 'my-mode-line-count-lines)
+;; (add-hook 'after-revert-hook 'my-mode-line-count-lines)
+;; (add-hook 'dired-after-readin-hook 'my-mode-line-count-lines)
+;; ;; -------------------- line count --------------------
+
+
+
+ 
+;; 在标题栏显示登陆名称和文件名
+;; ;;在标题栏提示当前位置
+(setq frame-title-format
+      (list "[" '(:eval (projectile-project-name)) "]" 
+	    "Current Path:"
+	    '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
+(setq frame-title-format
+      '((:eval
+         (let ((login-name (getenv-internal "LOGNAME")))
+           (if login-name (concat login-name "@") "")))
+        (:eval (system-name))
+        ":"
+        (:eval (or (buffer-file-name) (buffer-name)))))
+
+
 
 (provide 'my-global-key-settings)
 

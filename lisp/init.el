@@ -75,14 +75,14 @@
 (setq *emacs23* (and (not *xemacs*) (or (>= emacs-major-version 23))) )
 (setq *emacs24* (and (not *xemacs*) (or (>= emacs-major-version 24))) )
 
-;----------------------------------------------------------------------------
-; Functions (load all files in defuns-dir)
-; Copied from https://github.com/magnars/.emacs.d/blob/master/init.el
-;----------------------------------------------------------------------------
+                                        ;----------------------------------------------------------------------------
+                                        ; Functions (load all files in defuns-dir)
+                                        ; Copied from https://github.com/magnars/.emacs.d/blob/master/init.el
+                                        ;----------------------------------------------------------------------------
 (setq defuns-dir (expand-file-name "~/.emacs.d/defuns"))
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)
-      (load file)))
+    (load file)))
 
 (defconst my-emacs-path           "~/.emacs.d/lisp/" "我的emacs相关配置文件的路径")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -95,7 +95,7 @@
 
 ;; 把`my-emacs-lisps-path'的所有子目录都加到`load-path'里面
 (load (concat my-emacs-path "init-path"))
-(my-add-subdirs-to-load-path my-emacs-path)
+(my-add-subdirs-to-load-path "~/.emacs.d")
 ;;(my-add-subdirs-to-load-path my-emacs-my-lisps-path)
 
 
@@ -124,9 +124,9 @@
 
 
 
-;----------------------------------------------------------------------------
-; Load configs for specific features and modes
-;----------------------------------------------------------------------------
+                                        ;----------------------------------------------------------------------------
+                                        ; Load configs for specific features and modes
+                                        ;----------------------------------------------------------------------------
 
 (require 'init-modeline)
 
@@ -152,7 +152,7 @@
 ;;   (ecb-activate)) **/
 
 ;; (add-hook 'c-mode-common-hook 'cedet-hook) **/
-;; (require 'init-cedet)
+;;(require 'init-cedet)
 
 
 ;; (if *linux*
@@ -174,7 +174,10 @@
 (require 'init-cscope)
 (require 'init-ido)
 ;;(require 'init-tramp)
-;;(require 'init-maxframe)
+;; (if *linux*
+;;     (require 'init-maxframe)
+;;   )
+
 ;; 用一个很大的kill ring. 这样防止我不小心删掉重要的东西
 (setq kill-ring-max 200)
 
@@ -198,8 +201,9 @@
 
 ;;(require 'init-w3m)
 ;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
+(require 'mode-line-settings)
 
- (require 'my-global-key-settings)
+(require 'my-global-key-settings)
 ;;(require 'init-javascript)
 (provide 'init)
 (eval-when-compile
