@@ -128,7 +128,7 @@
                                         ; Load configs for specific features and modes
                                         ;----------------------------------------------------------------------------
 
-(require 'init-modeline)
+;;(require 'init-modeline)
 
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
@@ -202,6 +202,8 @@
 ;;(require 'init-w3m)
 ;;(setq-default flycheck-clang-includes '("/home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common"))
 (require 'mode-line-settings)
+
+
 
 (require 'my-global-key-settings)
 ;;(require 'init-javascript)

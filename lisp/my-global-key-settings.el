@@ -23,13 +23,13 @@
 ;;不生成临时文件
 (setq-default make-backup-files nil)
 
- ;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
+;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
 (mouse-avoidance-mode 'animate)
 
 ;;set the default text coding system
 ;;(setq default-buffer-file-coding-system 'utf-8)
 ;;(prefer-coding-system 'utf-8)
- 
+
 ;;指针不闪，不恍花眼睛。
 (blink-cursor-mode -1)
 (transient-mark-mode 1)
@@ -44,7 +44,7 @@
 (global-set-key [M-up] 'windmove-up)
 (global-set-key [M-down] 'windmove-down)
 ;;;;;------------------------------
-;;
+
 
 ;;时间设置
 (display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
@@ -105,7 +105,7 @@
 (setq lazy-lock-defer-on-scrolling t)
 ;;(setq font-lock-support-mode 'lazy-lock-mode)
 (setq font-lock-maximum-decoration t)
-   
+
 
 
 
@@ -131,15 +131,15 @@
 ;;;F4：切换到shell模式
 ;;(global-set-key [(f4)] 'ansi-term)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;;speedbar干啥用的。没觉得好用。。。。	       ;;
-;; ;; ;;;F5：打开speedbar			       ;;
-;; ;; (global-set-key [(f5)] 'speedbar)		       ;;
-;; ;; ;;定义f4为speedbar启动			       ;;
-;; ;; (global-set-key [(f4)] 'speedbar-get-focus)      ;;
-;; ;; ;;;Alt+s : 让speedbar获得焦点		       ;;
-;; ;; (global-set-key (kbd "M-s") 'speedbar-get-focus) ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;speedbar干啥用的。没觉得好用。。。。	       ;;
+;;;F5：打开speedbar			       ;;
+(global-set-key [(f5)] 'speedbar)		       ;;
+;;定义f4为speedbar启动			       ;;
+;;(global-set-key [(f4)] 'speedbar-get-focus)      ;;
+;;;Alt+s : 让speedbar获得焦点		       ;;
+(global-set-key (kbd "M-s") 'speedbar-get-focus) ;;
+
 
 
 
@@ -152,11 +152,11 @@
 
 ;;设置日历的一些颜色
 (setq calendar-load-hook
-'(lambda ()
-;; (set-face-foreground 'diary-face "skyblue")
-;; (set-face-background 'holiday-face "slate blue")
-   ;; (set-face-foreground 'holiday-face "white")))
-   ))
+      '(lambda ()
+         ;; (set-face-foreground 'diary-face "skyblue")
+         ;; (set-face-background 'holiday-face "slate blue")
+         ;; (set-face-foreground 'holiday-face "white")))
+         ))
 ;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
 ;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
 (setq calendar-latitude +39.54)
@@ -164,9 +164,9 @@
 (setq calendar-location-name "北京")
 ;; 设置阴历显示，在 calendar 上用 pC 显示阴历
 (setq chinese-calendar-celestial-stem
-["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
 (setq chinese-calendar-terrestrial-branch
-["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
+      ["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
 ;; 设置 calendar 的显示
 (setq calendar-remove-frame-by-deleting t)
 (setq calendar-week-start-day 1);; 设置星期一为每周的第一天
@@ -179,18 +179,18 @@
 (setq islamic-holidays nil)
 (setq solar-holidays nil)
 (setq general-holidays '((holiday-fixed 1 1 "元旦")
-(holiday-fixed 2 14 "情人节")
-(holiday-fixed 3 14 "白色情人节")
-(holiday-fixed 4 1 "愚人节")
-(holiday-fixed 5 1 "劳动节")
-(holiday-float 5 0 2 "母亲节")
-(holiday-fixed 6 1 "儿童节")
-(holiday-float 6 0 3 "父亲节")
-(holiday-fixed 7 1 "建党节")
-(holiday-fixed 8 1 "建军节")
-(holiday-fixed 9 10 "教师节")
-(holiday-fixed 10 1 "国庆节")
-(holiday-fixed 12 25 "圣诞节")))
+                         (holiday-fixed 2 14 "情人节")
+                         (holiday-fixed 3 14 "白色情人节")
+                         (holiday-fixed 4 1 "愚人节")
+                         (holiday-fixed 5 1 "劳动节")
+                         (holiday-float 5 0 2 "母亲节")
+                         (holiday-fixed 6 1 "儿童节")
+                         (holiday-float 6 0 3 "父亲节")
+                         (holiday-fixed 7 1 "建党节")
+                         (holiday-fixed 8 1 "建军节")
+                         (holiday-fixed 9 10 "教师节")
+                         (holiday-fixed 10 1 "国庆节")
+                         (holiday-fixed 12 25 "圣诞节")))
 ;;Calendar模式支持各种方式来更改当前日期
 ;;（这里的“前”是指还没有到来的那一天，“后”是指已经过去的日子）
 ;;  q      退出calendar模式
@@ -274,7 +274,7 @@
 
 ;; (global-set-key (read-kbd-macro "<C-tab>") 'my-insert-tab) 
 ;; (global-set-key (kbd "<C-tab>") 'my-insert-tab)
-(global-set-key (kbd "C-c t") 'my-insert-tab)
+(global-set-key (kbd "C-S-t") 'my-insert-tab)
 
 ;;删除的东西。
 ;;(global-set-key [(f2)] 'browse-kill-ring)
@@ -290,7 +290,7 @@
 ;; 密码之类的显示成**号
 (add-hook 'comint-output-filter-functions
           'comint-watch-for-password-prompt)
- 
+
 ;;格式化整个文件函数
 (defun indent-whole ()
   (interactive)
@@ -336,13 +336,13 @@
 
 
 
- 
+
 ;; 在标题栏显示登陆名称和文件名
 ;; ;;在标题栏提示当前位置
 (setq frame-title-format
       (list "[" '(:eval (projectile-project-name)) "]" 
-	    "Current Path:"
-	    '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+            "Current Path:"
+            '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 (setq frame-title-format
       '((:eval
@@ -352,6 +352,19 @@
         ":"
         (:eval (or (buffer-file-name) (buffer-name)))))
 
+;; turn on soft wrapping mode for org mode
+(add-hook 'org-mode-hook
+          (lambda() (setq truncate-lines nil)))
+
+;;set tab is my-insert-tab
+;; (add-hook 'org-mode-hook
+;;           (lambda()
+;; ;;            (define-key org-mode-map [\\S-\\t] nil)
+;;             (define-key org-mode-map (kbd "C-S-t") 'my-insert-tab)
+;;             (setq default-tab-width 4)
+;;             (message "aaa")
+;;             (setq tab-width 4)  
+;;             ))
 
 
 (provide 'my-global-key-settings)

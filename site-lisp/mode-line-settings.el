@@ -45,17 +45,18 @@
         'local-map mode-line-column-line-number-mode-map
         'mouse-face 'mode-line-highlight
         'help-echo "Size indication mode\n\
-mouse-1: Display Line and Column Mode Menu")
+1111mouse-1: Display Line and Column Mode Menu")
        ;; 当选中一块区域后, 会高亮显示这个区域有多少个字符, 没有选中区域的时候, 则显示当前buffer的大小
        (size-indication-mode
         (" "
          (:eval
           (propertize (get-size-indication-format)
-           'face (and transient-mark-mode mark-active (get-mode-line-region-face))
-           'local-map mode-line-column-line-number-mode-map
-           'mouse-face 'mode-line-highlight
-           'help-echo "Buffer position, mouse-1: Line/col menu"))))
-       (:eval
+                      'face (and transient-mark-mode mark-active (get-mode-line-region-face))
+                      'local-map mode-line-column-line-number-mode-map
+                      'mouse-face 'mode-line-highlight
+                      'help-echo "Buffer position, mouse-1: Line/col menu"))))
+       (
+        :eval
         ;; 当显示行号已经打开时, 则不在mode-line上显示行号
         (if (and line-number-mode (not (linum-mode-active)))
             (if column-number-mode
@@ -64,24 +65,25 @@ mouse-1: Display Line and Column Mode Menu")
                  'local-map mode-line-column-line-number-mode-map
                  'mouse-face 'mode-line-highlight
                  'help-echo "Line number and Column number\n\
-mouse-1: Display Line and Column Mode Menu")
+222mouse-1: Display Line and Column Mode Menu")
               (propertize
                " L%l"
                'local-map mode-line-column-line-number-mode-map
                'mouse-face 'mode-line-highlight
                'help-echo "Line Number\n\
-mouse-1: Display Line and Column Mode Menu"))
+333mouse-1: Display Line and Column Mode Menu"))
           (if column-number-mode
               (propertize
                " C%c"
                'local-map mode-line-column-line-number-mode-map
                'mouse-face 'mode-line-highlight
                'help-echo "Column number\n\
-mouse-1: Display Line and Column Mode Menu"))))))
-  (let* ((help-echo "mouse-1: select (drag to resize), mouse-2 = C-x 1, mouse-3 = C-x 0"))
+4444mouse-1: Display Line and Column Mode Menu"))))))
+  (let* ((help-echo "5555mouse-1: select (drag to resize), mouse-2 = C-x 1, mouse-3 = C-x 0"))
     (setq-default
      mode-line-position
-     `((:eval (get-lines-4-mode-line))
+     `(
+       (:eval (get-lines-4-mode-line))
        (:propertize "%p" 'help-echo ,help-echo)
        (size-indication-mode
         (" " (:eval (propertize
@@ -96,7 +98,7 @@ mouse-1: Display Line and Column Mode Menu"))))))
               (propertize " C%c" 'help-echo ,help-echo))))))))
 
 (let* ((help-echo
-        "mouse-1: Select (drag to resize)\n\
+        "666mouse-1: Select (drag to resize)\n\
 mouse-2: Make current window occupy the whole frame\n\
 mouse-3: Remove current window from display")
        (recursive-edit-help-echo "Recursive edit, type C-M-c to get out")
@@ -106,8 +108,8 @@ mouse-3: Remove current window from display")
          (propertize "%[" 'help-echo recursive-edit-help-echo)
          (propertize "(" 'help-echo help-echo)
          `(:propertize ("" mode-name)
-                       help-echo "Major mode\n\
-mouse-1: Display major mode menu\n\
+                       help-echo "Major mode1\n\
+7777mouse-1: Display major mode menu\n\
 mouse-2: Show help for major mode\n\
 mouse-3: Toggle minor modes"
                        mouse-face mode-line-highlight
@@ -115,16 +117,27 @@ mouse-3: Toggle minor modes"
          '("" mode-line-process)
          `(:propertize ("" minor-mode-alist)
                        mouse-face mode-line-highlight
-                       help-echo "Minor mode\n\
-mouse-1: Display minor mode menu\n\
+                       help-echo "Minor mode2\n\
+888mouse-1: Display minor mode menu\n\
 mouse-2: Show help for minor mode\n\
 mouse-3: Toggle minor modes"
                        local-map ,mode-line-minor-mode-keymap)
-         (propertize "%n" 'help-echo "mouse-2: Remove narrowing from the current buffer"
+         (propertize "%n" 'help-echo "9999mouse-2: Remove narrowing from the current buffer"
                      'mouse-face 'mode-line-highlight
                      'local-map (make-mode-line-mouse-map
                                  'mouse-1 #'mode-line-widen))
          (propertize ")" 'help-echo help-echo)
+         ;;time
+         "    "
+         '(:eval (propertize (format-time-string "%H:%M:%S")
+			'face 'font-lock-type-face
+			'help-echo 
+			(concat (format-time-string "%Y-%02m-%02d %02H:%02M:%02S %Y-%02m-%02d %3a; ")
+				(emacs-uptime "Uptime:%hh"))))
+         "    "
+         ;;date
+         '(:eval (propertize (format-time-string "%Y-%02m-%02d %3a")
+			'face 'font-lock-comment-face))
          (propertize "%]" 'help-echo recursive-edit-help-echo))))
   (setq-default mode-line-modes standard-mode-line-modes)
   (setq-default mode-line-format
@@ -142,6 +155,7 @@ mouse-3: Toggle minor modes"
                   (which-func-mode (" " which-func-format))
                   (working-mode-line-message (" " working-mode-line-message))
                   ,(propertize "-%-" 'help-echo help-echo))))
+
 
 (setq mode-line-format-bak mode-line-format)
 (setq mode-line t)

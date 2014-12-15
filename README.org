@@ -204,3 +204,10 @@ htmlize可以配合orgmode来使生成的html中的代码关键字高亮
 * 2014/12/04 15:40:10
 - 替换dired。使用elget来下载
 - 使用ahei的mode-line配色和设置
+
+
+* 2014/12/15 16:34:56
+- 去掉init.el中的init-modeline
+- 使用ahei的modeline
+- 打开speedbar
+- 修改emacs.css。设置orgmode中的src的背景色和文字颜色。
