@@ -39,8 +39,9 @@
 
 
 
-
-(set-default-font "Inconsolata-12")
+(if *is-a-mac*
+    (set-default-font "Inconsolata-15")
+  (set-default-font "Inconsolata-12"))
 
 ;; (when (display-graphic-p) 
 ;;   (setq fonts 
