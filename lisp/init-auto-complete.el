@@ -143,7 +143,7 @@
  /usr/local/include
  /Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1/include
  /usr/include
- /home/weikent/SRC/trunk/isockets/Comm_Platform/C/common
+ /media/psf/Home/SRC/trunk/isockets/Comm_Platform/C/common
  /System/Library/Frameworks
  /Library/Frameworks
 "
@@ -153,17 +153,16 @@
 	  (mapcar(lambda (item)(concat "-I" item))    
 		 (split-string    
 		  "  
- /usr/include/c++/4.7
- /usr/include/c++/4.7/i686-linux-gnu
- /usr/include/c++/4.7/backward
- /usr/lib/gcc/i686-linux-gnu/4.7/include
+ /usr/include/c++/4.8
+ /usr/include/i386-linux-gnu/c++/4.8
+ /usr/include/c++/4.8/backward
+ /usr/lib/gcc/i686-linux-gnu/4.8/include
  /usr/local/include
- /home/weikent/SRC/trunk/isockets/Comm_Platform/C/common
- /home/weikent/SRC/trunk/isockets/Comm_Platform/C1.1/common
- /usr/include/python2.7
- /usr/lib/gcc/i686-linux-gnu/4.7/include-fixed
+ /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed
  /usr/include/i386-linux-gnu
  /usr/include
+ /media/psf/Home/work/SRC/trunk/isockets/Comm_Platform/C/common
+ /media/psf/Home/work/SRC/trunk/isockets/Comm_Platform/C1.1/common
 "
 		  ))))
 
@@ -180,7 +179,10 @@
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)    
 ;; ac-source-gtags    
 (my-ac-config)    
-(ac-config-default)  
+(ac-config-default)
+
+;;(define-key ac-mode-map (kbd "C-n") 'ac-next)
+;;(define-key ac-mode-map (kbd "C-p") 'ac-previous)
 (provide 'init-auto-complete)
 
 

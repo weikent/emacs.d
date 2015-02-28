@@ -211,3 +211,24 @@ htmlize可以配合orgmode来使生成的html中的代码关键字高亮
 - 使用ahei的modeline
 - 打开speedbar
 - 修改emacs.css。设置orgmode中的src的背景色和文字颜色。
+* 2015/02/28 15:49:46
+#+BEGIN_DITAA  asciiExample.png -o -r -S
+
+       +----------+ edit +----------+   input +----------+ compile +----------+
+       | refined  |<-----+ h,cpp    +-------->+ compiler,+-------->+Executable|
+       |   h,cpp  |      |          |         | linker   |         |   File   |
+       +----------+      +----+-----+         +----------+         +----------+
+                              | input
+                              v
+                         +----------+
+                         | doxygen  |
+                         |          |
+                         +----+-----+
+                              | process
+                              v
+                         +----------+
+                         | Doxgen   |
+                         | Document |
+                         +----------+
+
+#+END_DITAA
