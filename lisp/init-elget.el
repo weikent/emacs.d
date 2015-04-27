@@ -60,7 +60,7 @@
 	autopair
         color-theme
         ;;rainbow-mode    ;;现阶段2014/12/02 14:04:03  使用elget下载的htmlize.el中为空。
-	jedi
+;;	jedi
 ;;        emms
 ;;        dired-sort
 ;;        auto-dictionnary

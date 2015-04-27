@@ -143,7 +143,7 @@
 (require 'init-elget)
 (require 'init-company)
 (require 'init-auto-complete)
-(require 'init_initjedi)
+;;(require 'init_initjedi)
 (require 'init-color-theme)
 (require 'init-template)
 (require 'init-dired)
