@@ -1,9 +1,9 @@
-sudo apt-get install clang 
-sudo apt-get install cscope
-sudo apt-get install python-dev
-sudo apt-get install python-virtualenv
-#sudo apt-get install ttf-incon...     
-sudo apt-get install automake 
-sudo apt-get install libxml2-dev
-sudo apt-get install texinfo
-sudo apt-get install fonts-inconsolata
+sudo apt-get install -y clang 
+sudo apt-get install -y cscope
+sudo apt-get install -y python-dev
+sudo apt-get install -y python-virtualenv
+sudo apt-get install -y automake 
+sudo apt-get install -y libxml2-dev
+sudo apt-get install -y texinfo
+sudo apt-get install -y fonts-inconsolata
+sudo apt-get install -y emacs24
