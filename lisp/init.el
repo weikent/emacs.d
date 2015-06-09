@@ -164,11 +164,11 @@
 
 (require 'init-doxymacs)
 ;;(require 'init-multi-web-mode)
-(require 'init-js2-mode)
+;;(require 'init-js2-mode)  ;;2015-06-09    never use emacs as a html/js editor.
 ;;(require 'init-moz)
-(require 'init-web-mode)
-(require 'init-zencoding)
-(require 'init-rainbow)
+;;(require 'init-web-mode)
+;;(require 'init-zencoding)
+;;(require 'init-rainbow)
 (require 'init-yasnippet)
 (require 'init-C)
 (require 'init-cscope)

@@ -29,7 +29,7 @@
 ;;    flycheck
 ;;    tidy
 ;;    zencoding-mode
-    rainbow-mode
+;;    rainbow-mode
     org
     htmlize
     )
