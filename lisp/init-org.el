@@ -211,6 +211,48 @@
 ;; iimage mode
 (autoload 'iimage-mode "iimage" "Support Inline image minor mode." t)
 (autoload 'turn-on-iimage-mode "iimage" "Turn on Inline image minor mode." t)
+
+
+
+
+
+(defface hi-red-b '((t (:foreground "#e50062"))) t)
+
+(defun org-bold-highlight ()
+  (interactive)
+  (hi-lock-mode)
+  (highlight-regexp "[ \\t]\\(\\*\\(\\S-[^*]+\\S-\\|[^*]\\{1,2\\}\\)\\*\\)[ \\t\\n]*" 'hi-red-b))
+
+(add-hook 'org-mode-hook 'org-bold-highlight)
+
+
+
+
+;; 用于设置颜色。
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (global-hi-lock-mode 1) ;开启全局 hi lock 模式                            ;;
+;; ;避免每次开启 hi lock mode 时询问是否需要高亮指定表达式                   ;;
+;; (setq hi-lock-file-patterns-policy #'(lambda (dummy) t))                  ;;
+;; ; 各种 face 的定义                                                        ;;
+;; (defface phone-number-lock-face '((t (:foreground "FF0000"))) t)          ;;
+;; (defface language-lock-face '((t (:foreground "00FF00"))) t)              ;;
+;; (defface emacs-vim-lock-face '((t (:foreground "9900FF"))) t)             ;;
+;;                                                                           ;;
+;; ; 利用 highlight-regexp 高亮指定的正则表达式                              ;;
+;; (defun bigboss-highlight ()                                               ;;
+;;   (interactive)                                                           ;;
+;;   (highlight-regexp "0[0-9]\\{2\\}-[0-9]\\{8\\}" 'phone-number-lock-face) ;;
+;;   (highlight-regexp "Lisp\\|Scheme" 'language-lock-face)                  ;;
+;;   (highlight-regexp "神之编辑器\\|编辑器之神" 'emacs-vim-lock-face)       ;;
+;; )                                                                         ;;
+;;                                                                           ;;
+;; ; org mode 中开启高亮                                                     ;;
+;; (add-hook 'org-mode-hook 'bigboss-highlight)                              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
 ;; 然后就可以用命令
 
 ;; M-x iimage-mode RET
@@ -293,3 +335,61 @@
 
 ;;这是一个可以引用外部css链接的方式，但由于无法确定css的位置，所以放弃了
 ;;"<link rel=\"stylesheet\" href=\"Org_Css/emacs.css\" type=\"text/css\"/>"
+
+
+
+
+
+;; about todo list
+(setq org-todo-keywords
+  '((type "工作(w!)" "学习(s!)" "休闲(l!)" "|")
+    (sequence "PENDING(p!)" "TODO(t!)"  "|" "DONE(d!)" "ABORT(a@/!)")
+    ))
+
+
+(setq org-todo-keyword-faces
+  '(("工作" .      (:background "red" :foreground "white" :weight bold))
+    ("学习" .      (:background "white" :foreground "red" :weight bold))
+    ("休闲" .      (:foreground "MediumBlue" :weight bold)) 
+    ("PENDING" .   (:background "LightGreen" :foreground "gray" :weight bold))
+    ("TODO" .      (:background "DarkOrange" :foreground "black" :weight bold))
+    ("DONE" .      (:background "azure" :foreground "Darkgreen" :weight bold)) 
+    ("ABORT" .     (:background "gray" :foreground "black"))
+    ))
+
+;; (setq org-todo-keywords
+;;            '((sequence "TODO(t!)" "|" "DONE(d!)")
+;;              (sequence "REPORT(r!)" "BUG(b!)" "KNOWNCAUSE(k!)" "|" "FIXED(f!)")
+;;              (sequence "|" "CANCELED(c@)")))
+
+;; (setq org-todo-keyword-faces
+;;   '(("TODO" .      (:background "red" :foreground "white" :weight bold))
+;;     ("DONE" .      (:background "white" :foreground "red" :weight bold))
+;;     ("REPORT" .      (:foreground "MediumBlue" :weight bold)) 
+;;     ("BUG" .   (:background "LightGreen" :foreground "gray" :weight bold))
+;;     ("KNOWNCAUSE" .      (:background "DarkOrange" :foreground "black" :weight bold))
+;;     ("FIXED" .      (:background "azure" :foreground "Darkgreen" :weight bold)) 
+;;     ("CANCLED" .     (:background "gray" :foreground "black"))
+;;     ))
+
+
+;; 设置为t 。 意味着 子任务不完成，父任务就不能设置为 done
+(setq org-enforce-todo-dependencies t)
+
+;; 在任务完成的时候，除了有默认的时间外，  还可以增加一个 note
+(setq org-log-done 'note)
+
+;; 优先级范围和默认任务的优先级
+(setq org-highest-priority ?A)
+(setq org-lowest-priority  ?E)
+(setq org-default-priority ?E)
+;; 优先级醒目外观
+(setq org-priority-faces
+  '((?A . (:background "red" :foreground "white" :weight bold))
+    (?B . (:background "DarkOrange" :foreground "white" :weight bold))
+    (?C . (:background "yellow" :foreground "DarkGreen" :weight bold))
+    (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
+    (?E . (:background "SkyBlue" :foreground "black" :weight bold))
+    ))
+
+(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
