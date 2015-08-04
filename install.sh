@@ -1,0 +1,9 @@
+sudo apt-get install -y clang 
+sudo apt-get install -y cscope
+sudo apt-get install -y python-dev
+sudo apt-get install -y python-virtualenv
+sudo apt-get install -y automake 
+sudo apt-get install -y libxml2-dev
+sudo apt-get install -y texinfo
+sudo apt-get install -y fonts-inconsolata
+sudo apt-get install -y emacs24

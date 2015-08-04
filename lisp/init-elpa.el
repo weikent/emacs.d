@@ -29,8 +29,8 @@
 ;;    flycheck
 ;;    tidy
 ;;    zencoding-mode
-    rainbow-mode
-    org
+;;    rainbow-mode
+;;    org
     htmlize
     )
   "A list of packages to ensure are installed at launch.")

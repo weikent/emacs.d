@@ -88,7 +88,7 @@
 (add-hook 'perl-mode-hook       'hs-minor-mode)
 (add-hook 'sh-mode-hook         'hs-minor-mode)
 
-(define-key python-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)
+;;(define-key python-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)
 ;;(define-key c++-mode-map  (kbd "C-c C-c") 'hs-toggle-hiding)
 ;;(define-key c++-mode-map "\C-ct" 'some-function-i-want-to-call)
 

@@ -43,13 +43,14 @@
         ;; org-publish
         ;;        anything ;;use helm to replace
         helm
+	helm-cmd-t
 	color-theme
 	browse-kill-ring
 	highlight-symbol
-	web-mode
+;;	web-mode
 	doxymacs
         dropdown-list
-        zencoding-mode
+;;        zencoding-mode
 ;;        htmlize  ;;版本过新。orgmode会出错。使用elpa下载老版本
         tidy
         company-mode
