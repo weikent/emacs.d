@@ -17,9 +17,9 @@ VPATH =
 INCLUDE = 
 WALL = -Wall
 C99 = #-std=c99
-THREAD = -lpthread
+THREAD = #-lpthread
 OPTIMIZE = -O2
-
+RM = rm -f
 
 
 SOURCECPP =
@@ -50,7 +50,7 @@ $(TARGET): $(OBJECTSC) $(OBJECTSCPP)
 
 
 clean:
-	rm $(OBJS) $(TARGET)
+	$(RM) $(OBJS) $(TARGET)
 
 install:
 #	cp *.h *.cpp *.c -r ../wpa

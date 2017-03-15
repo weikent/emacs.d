@@ -312,7 +312,6 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (defconst my-site-lisp-path "~/Documents/Git/emacs/site-lisp/" "配置文件路径")
-;;  (defconst my-yasnippets (concat my-site-lisp-path "myYasnippets/") "yasnippets配置文件")
 
   (with-eval-after-load 'yasnippet
     (define-key yas-minor-mode-map (kbd "C-;") 'yas-expand)
